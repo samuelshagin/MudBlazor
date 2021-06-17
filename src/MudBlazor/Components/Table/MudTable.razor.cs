@@ -35,6 +35,10 @@ namespace MudBlazor
         /// </summary>
         [Parameter] public bool HorizontalScrollbar { get; set; }
 
+        [Parameter] public String NoRecordsText { get; set; }
+
+        [Parameter] public String NoRecordsIcon { get; set; }
+
         internal string GetHorizontalScrollbarStyle() => HorizontalScrollbar ? ";display: block; overflow-x: auto;" : string.Empty;
 
         /// <summary>

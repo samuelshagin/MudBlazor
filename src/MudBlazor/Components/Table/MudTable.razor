@@ -55,7 +55,7 @@
                             </td>
                         </tr>
                     }
-                    @if (CurrentPageItems != null)
+                    @if ((CurrentPageItems != null) && (CurrentPageItems.Count() > 0))
                     {
                         var rowIndex = 0;
                         <MudVirtualize IsEnabled="@Virtualize" Items="@CurrentPageItems?.ToList()" Context="item">
@@ -80,6 +80,22 @@
                                 }
                                 @{ rowIndex++; }
                          </MudVirtualize>
+                    }
+                    else if (!String.IsNullOrEmpty(NoRecordsText))
+                    {
+                         <tr>
+                            <td colspan="1000">
+                                <div style="display: flex; margin-left: 45%; margin-top: 18%; margin-bottom: 18%;">
+                                    @if (!String.IsNullOrEmpty(NoRecordsIcon))
+                                    {
+                                        <MudIcon Icon="@NoRecordsIcon" Size="Size.Large" />
+                                    }
+                                    @if (!String.IsNullOrEmpty(NoRecordsText))
+                                    {
+                                <MudText Typo="Typo.body2" Color="Color.Inherit" Class="mt-2">@NoRecordsText</MudText>}
+                                </div>
+                            </td>
+                         </tr>
                     }
                 </tbody>
                 @if (FooterContent != null)
